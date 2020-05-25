@@ -33,7 +33,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => trans('product.errors.name.required'),
-            'name.min' => trans('product.errors_name_min'),
+            'name.min' => trans('product.errors.name.min'),
             'name.max' => 'Tên không quá 100 kí tự'
         ];
     }

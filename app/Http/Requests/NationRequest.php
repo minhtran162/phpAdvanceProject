@@ -31,7 +31,7 @@ class NationRequest extends FormRequest
     {
         return [
             'name.required' => trans('nation.errors.name.required'),
-            'name.min' => trans('nation.errors_name_min'),
+            'name.min' => trans('nation.errors.name.min'),
             'name.max' => 'Tên nước không quá 50 kí tự'
         ];
     }

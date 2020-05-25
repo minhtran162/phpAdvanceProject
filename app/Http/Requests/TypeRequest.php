@@ -31,7 +31,7 @@ class TypeRequest extends FormRequest
     {
         return [
             'name.required' => trans('type.errors.name.required'),
-            'name.min' => trans('type.errors_name_min'),
+            'name.min' => trans('type.errors.name.min'),
             'name.max' => 'Tên không quá 100 kí tự'
         ];
     }

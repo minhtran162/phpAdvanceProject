@@ -31,7 +31,7 @@ class BrandRequest extends FormRequest
     {
         return [
             'name.required' => trans('brand.errors.name.required'),
-            'name.min' => trans('brand.errors_name_min'),
+            'name.min' => trans('brand.errors.name.min'),
             'name.max' => 'Tên không quá 100 kí tự'
         ];
     }

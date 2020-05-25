@@ -15,6 +15,9 @@ return [
     //form input
     'label.name' => 'Type',
 
+    'errors.name.required' => 'The :attribute field is required',
+    'errors.name.min' => 'The name must be at least :min characters',
+
 ];
 
 ?>

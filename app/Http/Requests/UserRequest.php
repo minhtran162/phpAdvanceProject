@@ -32,19 +32,19 @@ class UserRequest extends FormRequest
         public function messages()
         {
             return [
-                'username.required' => trans('user.errors.name.required'),
-                'name.min' => trans('user.errors.name.min'),
-                'name.max' => 'Tên không quá 100 kí tự',
-                'username.unique' => 'User đã tồn tại',
+                'username.required' => trans('user.errors.username.required'),
+                'username.min' => trans('user.errors.username.min'),
+                'username.max' => trans('user.errors.username.max'),
+                'username.unique' => trans('user.errors.username.unique'),
                 
-                'email.required' => trans('user.errors.name.required'),
-                'email.min' => trans('user.errors.name.min'),
-                'email.max' => 'Email không quá 100 kí tự',
-                'email.unique' => 'Email đã tồn tại',
+                'email.required' => trans('user.errors.email.required'),
+                'email.min' => trans('user.errors.email.min'),
+                'email.max' => trans('user.errors.email.max'),
+                'email.unique' => trans('user.errors.email.unique'),
                 
                 'password.required' => trans('user.errors.name.required'),
                 'password.min' => trans('user.errors.name.min'),
-                'password.max' => 'Địa chỉ không quá 150 kí tự'
+                'password.max' => trans('user.errors.address.max')
             ];
         }
 }

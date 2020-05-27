@@ -13,11 +13,17 @@ return [
     |
     */
     //form input
-    'label.name' => 'Type',
+    'label.name' => 'Order Detail',
 
     'errors.name.required' => 'The :attribute field is required',
-    'errors.name.min' => 'The name must be at least :min characters',
-    'errors.name.max' => 'The :attribute may not be greater than :max characters',
+    'errors.price.required' => 'The :attribute field is required',
+    'errors.quantity.required' => 'The :attribute field is required',
+    'errors.total.required' => 'The :attribute field is required',
+    'errors.customer_id.required' => 'The :attribute field is required',
+    'errors.order_id.required' => 'The :attribute field is required',
+    'errors.product_id.required' => 'The :attribute field is required',
+    
+
 ];
 
 ?>

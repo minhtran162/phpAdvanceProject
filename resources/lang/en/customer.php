@@ -13,11 +13,23 @@ return [
     |
     */
     //form input
-    'label.name' => 'Type',
+    'label.name' => 'Customer',
 
     'errors.name.required' => 'The :attribute field is required',
     'errors.name.min' => 'The name must be at least :min characters',
     'errors.name.max' => 'The :attribute may not be greater than :max characters',
+
+    'errors.email.required' => 'The :attribute field is required',
+    'errors.email.min' => 'The :attribute must be at least :min characters',
+    'errors.email.max' => 'The :attribute may not be greater than :max characters',
+    'errors.email.unique' => 'The :attribute has already been taken.',
+
+    'errors.address.required' => 'The :attribute field is required',
+    'errors.address.min' => 'The name must be at least :min characters',
+    'errors.address.max' => 'The :attribute may not be greater than :max characters',
+
+    'errors.birthday.required' => 'The :attribute field is required',
+    
 ];
 
 ?>

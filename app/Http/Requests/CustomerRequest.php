@@ -35,18 +35,18 @@ class CustomerRequest extends FormRequest
         return [
             'name.required' => trans('customer.errors.name.required'),
             'name.min' => trans('customer.errors.name.min'),
-            'name.max' => 'Tên không quá 100 kí tự',
+            'name.max' => trans('customer.errors.email.max'),
             
             'email.required' => trans('customer.errors.email.required'),
             'email.min' => trans('customer.errors.email.min'),
-            'email.max' => 'Email không quá 100 kí tự',
-            'email.unique' => 'Email đã tồn tại',
+            'email.max' => trans('customer.errors.email.max'),
+            'email.unique' => trans('customer.errors.email.unique'),
             
             'birthday.required' => trans('customer.errors.birthday.required'),
             
             'address.required' => trans('customer.errors.address.required'),
             'address.min' => trans('customer.errors.address.min'),
-            'address.max' => 'Địa chỉ không quá 150 kí tự'
+            'address.max' => trans('customer.errors.address.max')
         ];
     }
 }

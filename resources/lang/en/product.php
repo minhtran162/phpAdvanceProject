@@ -16,5 +16,10 @@ return [
     'label.name' => 'Product Name',
     'label.desc' => 'Description',
     'label.price' => 'Price',
+    
+
+    'errors.name.required' => 'The :attribute field is required',
+    'errors.name.min' => 'The name must be at least :min characters',
+    'errors.name.max' => 'The :attribute may not be greater than :max characters',
 
 ];

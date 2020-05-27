@@ -18,7 +18,8 @@ return [
 
 
     'errors.name.required' => 'Tên bắt buộc phải có',
-    'errors_name_min' => 'Tên tối thiểu có 10 kí tự',
+    'errors.name.min' => 'Tên tối thiểu có :min kí tự',
+    'errors.name.max' => 'Tên tối đa có :max kí tự',
 
 ];
 

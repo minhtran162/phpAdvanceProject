@@ -13,6 +13,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'name' => $faker->name,
         'desc' => $faker->paragraph,
         'price' => $faker->numberBetween(100000, 100000000),
+        'image' => $faker->imageUrl(),
         
         'brand_id' => $faker -> randomElement($brandId),
         'nation_id' => $faker -> randomElement($nationId),

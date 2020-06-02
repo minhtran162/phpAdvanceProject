@@ -10,6 +10,6 @@ use Illuminate\Support\Str;
 
 $factory->define(Type::class, function (Faker $faker) {
     return [
-        'name' => $faker->title,
+        'name' => $faker->languageCode,
     ];
 });

@@ -64,7 +64,8 @@ class OrderDetailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $orderDetail = OrderDetail::find($id);
+        return view('products.edit',array('product'=>$product));
     }
 
     /**

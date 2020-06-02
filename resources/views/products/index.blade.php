@@ -1,47 +1,19 @@
-@extends('layouts.admin')
-@section('title', 'Danh sach product')
+@extends('layouts.master')
 
-@section('content')
-
-<table style="border:1px">
-    <tbody>
-        <tr>
-            <td>ID</td>
-            <td>Product Name</td>
-            <td>Price</td>
-            <td>Description</td>
-            <td>Brand</td>
-            <td>Type</td>
-            <td>Nation</td>
-            <td> <a href="{{ route('products.create') }}">Create</a> </td>
-        </tr>
-        @foreach($products as $product)
-        <tr>
-            <td> {{$product->id}}</td>
-            <td> {{$product->name}}</td>
-            <td> {{$product->price}}</td>
-            <td> {{ $product->desc }} </td>
-            
-            <?php $brand = App\Models\Brand::find($product->brand_id) ?>
-            <td> {{ $brand->name }}</td>
-
-            <?php $type = App\Models\Type::find($product ->type_id) ?>
-            <td> {{ $type->name }}</td>
-
-            <?php $nation = App\Models\Nation::find($product ->nation_id) ?>
-            <td> {{ $nation->name }}</td>
-
-            <td> <a href="{{ route('products.edit', $product->id) }}">Edit</a> </td>
-            <td>
-                <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button>Delete</button>
-                </form>
-            </td>
-        </tr>
+<!-- product hot -->
+<div class="container-fluid bg-3 containerCustom">
+    <div class="row">
+        @foreach($products as $products)
+        <div class="col-sm-3">
+            <div class="card">
+                <img class="card-img-top" src="{{$products->image}}" alt="Card image">
+                <div class="card-body">
+                    <p class="card-text">{{$products->brands->name}}</p>
+                    <h4 class="card-title">{{$products->name}}</h4>
+                    <p style="text-align:right; font-size: 18px" class="card-text">{{$products->price}}00.000 ₫</p>
+                </div>
+            </div>
+        </div>
         @endforeach
-    </tbody>
-</table>
-
-@endsection
+    </div>
+</div>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Brand;
+use App\Models\Nation;
 use App\Models\Product;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,8 +19,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', array('products' => $products));
+        $productsData = Product::all();
+        $nationsData = Nation::all();
+        $brandsData = Brand::all();
+        $typesData = Type::all();
+
+        return view('admin.product.index', [
+            'productsData' => $productsData,
+            'brandsData' => $brandsData,
+            'nationsData' => $nationsData,
+            'typesData' => $typesData
+        ]);
     }
 
     /**
@@ -27,7 +39,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return route('products.create');
     }
 
     /**
@@ -39,8 +51,8 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $product = Product::create($request->all());
-        if($product) {
-            return redirect()->route('products.index');
+        if ($product) {
+            return redirect('admin');
         }
         return redirect()->route('products.create');
     }
@@ -53,8 +65,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = \App\Models\Product::find($id);
-        return view('products.show', array('product' => $product));
+        // $product = \App\Models\Product::find($id);
+        // return view('products.show', array('product' => $product));
     }
 
     /**
@@ -65,8 +77,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        return view('products.edit',array('product'=>$product));
+        return route('products.update', $id);
     }
 
     /**
@@ -76,13 +87,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $product = Product::find($id);
-        $product->name = $request['name'];
-        $product->price = $request['price'];
-        $product->save();
-        if($product){
+        $edit = Product::find($id);
+        $edit->update($request->all());
+        if ($edit) {
             return redirect()->route('products.index');
         }
         return redirect()->route('products.edit');
@@ -96,8 +105,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::find($id);
-        $product->delete();
-        return redirect()->route('products.index');
+        Product::findOrFail($id)->delete();
+        return redirect('admin/products');
     }
 }

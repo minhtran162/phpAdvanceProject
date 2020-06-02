@@ -17,7 +17,7 @@ class TypeController extends Controller
     public function index()
     {
         $types = Type::all();
-        return view('types.index', array('types' => $types));
+        return view('admin.type.index', ['typesData' => $types]);
     }
 
     /**
@@ -40,7 +40,7 @@ class TypeController extends Controller
     {
         $type = Type::create($request->all());
         if($type) {
-            return redirect()->route('types.index');
+            return redirect('admin/type');
         }
         return redirect()->route('types.create');
     }
@@ -53,8 +53,8 @@ class TypeController extends Controller
      */
     public function show($id)
     {
-        $type = \App\Models\Type::find($id);
-        return view('types.show', array('type' => $type));
+        // $type = \App\Models\Type::find($id);
+        // return view('types.show', array('type' => $type));
     }
 
     /**
@@ -65,7 +65,7 @@ class TypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return route('type.update', $id);
     }
 
     /**
@@ -77,7 +77,12 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $edit = Type::find($id);
+        $edit->update($request->all());
+        if ($edit) {
+            return redirect()->route('types.index');
+        }
+        return redirect()->route('types.edit');
     }
 
     /**
@@ -88,6 +93,7 @@ class TypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Type::findOrFail($id)->delete();
+        return redirect('admin/types');
     }
 }

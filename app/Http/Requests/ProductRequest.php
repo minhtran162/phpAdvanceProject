@@ -25,8 +25,12 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required|min:10|max:100',
-            'price' => 'required',
-            'desc' => 'required'
+            'price' => 'required|numeric',
+            'desc' => 'required',
+            'image' => 'required|url',
+            'brand_id' => 'required',
+            'type_id' => 'required',
+            'nation_id' => 'required'
         ];
     }
     public function messages()
@@ -34,7 +38,20 @@ class ProductRequest extends FormRequest
         return [
             'name.required' => trans('product.errors.name.required'),
             'name.min' => trans('product.errors.name.min'),
-            'name.max' => trans('product.errors.name.max')
+            'name.max' => trans('product.errors.name.max'),
+            
+            'desc.required' => trans('product.desc_error_required'),
+
+            'image.required' => trans('product.img_error_required'),
+            'image.url' => trans('product.img_error_url'),
+
+            'price.required' => trans('product.price_error_required'),
+            'price.numeric' => trans('product.price_error_numeric'),
+
+            'brand_id.required' => trans('product.brand_error_required'),
+            'type_id.required' => trans('product.type_error_required'),
+            'nation_id.required' => trans('product.nation_error_required'),
+
         ];
     }
 }

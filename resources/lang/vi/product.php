@@ -13,13 +13,20 @@ return [
     |
     */
     //form input
-    'label.name' => 'Tên Sản Phẩm',
-    'label.desc' => 'Mô tả',
-    'label.price' => 'Giá Sản Phẩm',
+    
+    'product_name_error_required' => 'Tên sản phẩm không được để trống.',
+    'name_error_min' => 'Tên sản phẩm ít nhất :min kí tự.',
+    'name_error_max' => 'Tên sản phẩm nhiều nhất :max kí tự.',
 
+    'desc_error_required' => 'Mô tả không dược để trống.',
 
-    'errors.name.required' => 'Tên bắt buộc phải có',
-    'errors.name.min' => 'Tên tối thiểu có :min kí tự',
-    'errors.name.max' => 'Tên tối đa có :max kí tự',
+    'img_error_required' => 'Ảnh sản phẩm không được để trống.',
+    'img_error_url' => 'Định dạng link ảnh không đúng.',
 
+    'price_error_required' => 'Giá sản phẩm không được để trống.',
+    'price_error_numeric' => 'Giá sản phẩm phải là dạng số.',
+
+    'brand_error_required' => 'Vui lòng chọn thương hiệu.',
+    'type_error_required'  => 'Vui lòng chọn loại sản phẩm.',
+    'nation_error_required' => 'Vui lòng chọn nước sản xuất.',
 ];

@@ -17,7 +17,7 @@ class NationController extends Controller
     public function index()
     {
         $nations = Nation::all();
-        return view('nations.index', array('nations' => $nations));
+        return view('admin.nation.index', ['nationsData' => $nations]);
     }
 
     /**
@@ -27,7 +27,7 @@ class NationController extends Controller
      */
     public function create()
     {
-        return view('nations.create');
+        return route('nations.store');
     }
 
     /**
@@ -40,7 +40,7 @@ class NationController extends Controller
     {
         $nation = Nation::create($request->all());
         if($nation) {
-            return redirect()->route('nations.index');
+            return redirect('admin/nation');
         }
         return redirect()->route('nations.create');
     }
@@ -53,8 +53,8 @@ class NationController extends Controller
      */
     public function show($id)
     {
-        $nation = \App\Models\Nation::find($id);
-        return view('nations.show', array('nation' => $nation));
+    //     $nation = \App\Models\Nation::find($id);
+    //     return view('nations.show', array('nation' => $nation));
     }
 
     /**
@@ -65,7 +65,7 @@ class NationController extends Controller
      */
     public function edit($id)
     {
-        //
+        return route('nation.update', $id);
     }
 
     /**
@@ -77,7 +77,12 @@ class NationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $edit = Nation::find($id);
+        $edit->update($request->all());
+        if ($edit) {
+            return redirect()->route('nations.index');
+        }
+        return redirect()->route('nations.edit');
     }
 
     /**
@@ -88,6 +93,7 @@ class NationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Nation::findOrFail($id)->delete();
+        return redirect('admin/nations');
     }
 }

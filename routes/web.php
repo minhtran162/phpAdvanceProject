@@ -13,23 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view('admin.index');
 });
 
-Route::get('posts/{post}/comments/{comment}', function($postId, $commentId){
-    return "post: $postId - comment: $commentId";
+//Admin Panel
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('index');
+    Route::resource('products', 'ProductController');
+    Route::resource('brands', 'BrandController');
+    Route::resource('types', 'TypeController');
+    Route::resource('nations', 'NationController');
+    
 });
-
-Route::get('user/{id}', function($id = null){
-    return $id;
-})->middleware('checkAge', 'checkName');
-
-Route::resource('products', 'ProductController');
-Route::resource('brands', 'BrandController');
-Route::resource('types', 'TypeController');
-Route::resource('nations', 'NationController');
-Route::resource('customers', 'CustomerController');
-Route::resource('users', 'UserController');
-Route::resource('orders', 'OrderController');
-Route::resource('order_details', 'OrderDetailController');

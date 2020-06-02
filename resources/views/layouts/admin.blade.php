@@ -1,34 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <title>@yield('title')</title>
-</head>
+<title>Manage</title>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div id="header">
-                <h2>HEADER</h2>
+            <!-- left panel -->
+            <div class="col-sm-2 sidenav" style="background-color:light-blue">
+                <div class="list-group">
+                    <a href="{{route('index')}}" class="list-group-item {{Route::currentRouteName() == 'index' ? 'active' : ''}}">Admin Panel</a>
+                    <a href="{{route('products.index')}}" class="list-group-item {{Route::currentRouteName() == 'products.index' ? 'active' : ''}}">Product</a>
+                    <a href="{{route('brands.index')}}" class="list-group-item {{Route::currentRouteName() == 'brands.index' ? 'active' : ''}}">Brand</a>
+                    <a href="{{route('types.index')}}" class="list-group-item {{Route::currentRouteName() == 'types.index' ? 'active' : ''}}">Type</a>
+                    <a href="{{route('nations.index')}}" class="list-group-item {{Route::currentRouteName() == 'nations.index' ? 'active' : ''}}">Nation</a>
+                    
+                    <a href="/" class="list-group-item" style="margin-top: 55vh"><i class="fa fa-arrow-left"></i> Back to Home</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div id="wrapper">
+
+            <!-- right panel -->
+            <div class="col-sm-10" style="background-color:white">
                 @yield('content')
-            </div>
-        </div>
-        <div class="row">
-            <div id="footer">
-                <h2>FOOTER</h2>
             </div>
         </div>
     </div>
 </body>
-
-</html>

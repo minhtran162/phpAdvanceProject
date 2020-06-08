@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-    return view('admin.index');
-});
 
+Route::get('/', function(){
+    return view('welcome');
+});
 //Admin Panel
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -28,3 +29,16 @@ Route::prefix('admin')->group(function () {
     Route::resource('nations', 'NationController');
     
 });
+
+
+
+Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::resource('products', 'ProductController');
+    Route::resource('brands', 'BrandController');
+    Route::resource('types', 'TypeController');
+    Route::resource('nations', 'NationController');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

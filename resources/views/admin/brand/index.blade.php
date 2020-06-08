@@ -26,7 +26,7 @@
     @include('common.errors')
 
     <!-- table -->
-    <table class="table table-hover">
+    <table class="table table-hover  table-bordered">
         <thead>
             <tr class="bg-info">
                 <th>ID</th>

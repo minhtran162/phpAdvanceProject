@@ -17,35 +17,36 @@
 
             <!--  -->
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Brand
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        @foreach($brands as $brand)
-                        <li><a href="#">{{ $brand->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                    @endif
+                    @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Type
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        @foreach($types as $type)
-                        <li><a href="#">{{ $type->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Nation
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        @foreach($nations as $nation)
-                        <li><a href="#">{{ $nation->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
+                </ul>
 
                 <!-- <li class="active"><a href="#">Home</a></li> -->
                 <li><a href="">Page 2</a></li>

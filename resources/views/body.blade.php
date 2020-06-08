@@ -8,11 +8,11 @@
 <div class="container-fluid" style="width:100%; padding: 0px 0px 12px 0px;">
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
         <!-- Indicators -->
-        <!-- <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol> -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
@@ -60,18 +60,7 @@
 <div class="container-fluid bg-3 containerCustom">
     <h3 style="text-align: center;">Các sản phẩm hot trong ngày</h3><br>
     <div class="row">
-        @foreach($products as $products)
-        <div class="col-sm-3">
-            <div class="card">
-                <img class="card-img-top" src="{{$products->image}}" alt="Card image">
-                <div class="card-body">
-                    <p class="card-text">{{$products->productBrand->name}}</p>
-                    <h4 class="card-title">{{$products->name}}</h4>
-                    <p style="text-align:right; font-size: 18px" class="card-text">{{$products->price}}00.000 ₫</p>
-                </div>
-            </div>
-        </div>
-        @endforeach
+       
     </div>
 </div>
 

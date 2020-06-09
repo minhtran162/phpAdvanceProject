@@ -1,4 +1,3 @@
-@extends('layouts.master')
 <style>
     body {
         background-color: #4d3534 !important;

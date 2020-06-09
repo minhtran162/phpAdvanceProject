@@ -26,6 +26,7 @@ td {
 }
 
 .col-sm-10 {
+    
 }
 
 .right {
@@ -52,13 +53,13 @@ button.btn.btn-outline-danger {
 
 /*  */
 .user-details {
-    /* display: flex;
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.247); */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.247);
 }
 .user-details p {
     margin-top: 5px;

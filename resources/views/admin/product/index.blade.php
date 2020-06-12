@@ -45,7 +45,7 @@
                 <td>{{$productsData->id}}</td>
                 <td>{{$productsData->name}}</td>
                 <td data-toggle="tooltip" data-placement="bottom" title="{{$productsData->desc}}">{{Str::limit($productsData->desc,40)}}</td>
-                <td>{{Str::limit($productsData->image,20)}}</td>
+                <td><img src="{{ $productsData->image }}" width="120" height="120" /></td>
                 <td>{{$productsData->price}}</td>
                 <td>{{$productsData->Brand->name}}</td>
                 <td>{{$productsData->Types->name}}</td>

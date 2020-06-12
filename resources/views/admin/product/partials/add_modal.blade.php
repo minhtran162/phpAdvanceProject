@@ -11,7 +11,7 @@
 
             <!-- modal body -->
             <div class="modal-body">
-                <form action="{{route('products.store')}}" method="POST" class="form-horizontal">
+                <form action="{{route('products.store')}}" method="POST" class="form-horizontal" enctype="multipart/form-data" method="POST">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -33,7 +33,7 @@
                         <label class="col control-label">Image</label>
 
                         <div class="col">
-                            <input type="text" name="image" id="task-name" class="form-control">
+                            <input type="file" name="image" required="true" id="task-name" class="form-control">
                         </div>
 
                     </div>

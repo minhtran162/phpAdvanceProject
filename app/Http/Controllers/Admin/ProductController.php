@@ -51,11 +51,34 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $product = Product::create($request->all());
+        $fileName = $this->doUpload($request);
+        $product = Product::create(array_merge($request->all(), ["image" => "http:\\\\localhost:8000\upload\\".$fileName]));
         if ($product) {
-            return redirect('admin');
+            return redirect('admin/products');
         }
         return redirect()->route('products.create');
+    }
+    
+    private function doUpload(Request $request)
+    {
+        $fileName = "";
+        //Kiểm tra file
+        if ($request->file('image')->isValid()) {
+			// File này có thực, bắt đầu đổi tên và move
+			$fileExtension = $request->file('image')->getClientOriginalExtension(); // Lấy . của file
+			
+			// Filename cực shock để khỏi bị trùng
+			$fileName = time() . "_" . rand(0,9999999) . "_" . md5(rand(0,9999999)) . "." . $fileExtension;
+						
+			// Thư mục upload
+			$uploadPath = public_path('/upload'); // Thư mục upload
+			
+			// Bắt đầu chuyển file vào thư mục
+			$request->file('image')->move($uploadPath, $fileName);
+		}
+		else {
+        }
+        return $fileName;
     }
 
     /**
